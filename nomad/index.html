@@ -9,31 +9,20 @@
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <script type="text/babel">
         const root = document.getElementById("root");
+        let counter = 0;
+        function countUp() {
+            counter += 1;
+        }
+        let [count, updateCount] = React.useState(0);
 
-        const Title = () => {
-            return <h3 id="title">Hello I'm a title</h3>;
-        };
-        const Button = () => {
-            return (
-                <button
-                    style={{ backgroundColor: "tomato" }}
-                    onClick={() => {
-                        console.log("clicked button");
-                    }}
-                >
-                    Click me
-                </button>
-            );
-        };
-
-        const Container = () => {
+        const App = () => {
             return (
                 <div>
-                    <Title />
-                    <Button />
+                    <h3>Total Clicks : {count}</h3>
+                    <button onClick={countUp}>Click me</button>
                 </div>
             );
         };
-        ReactDOM.render(<Container />, root);
+        ReactDOM.render(<App />, root);
     </script>
 </html>
