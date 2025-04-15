@@ -1,0 +1,36 @@
+.Mpp {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    text-align: center;
+}
+
+.Mpp-header {
+    height: 50px;
+    background-color: #282c34;
+    color: white;
+}
+
+.Mpp-body {
+    flex: 1; /* 남은 공간 전부 차지 */
+    overflow-y: auto; /* 내용이 많아질 경우 스크롤 */
+}
+
+.Mpp-footer {
+    height: 50px;
+    background-color: #282c34;
+    color: white;
+}
+
+.Mpp-link {
+    color: #61dafb;
+}
+
+@keyframes Mpp-logo-spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
