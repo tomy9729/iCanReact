@@ -22,6 +22,28 @@ async function myFetch(endpoint, params = {}) {
     }
 }
 
-export function getCurrencyList() {
+function getCurrencyList() {
     return myFetch("currencies");
 }
+
+function getLatestRates(params) {
+    return myFetch("latest", params);
+}
+
+/**
+ *
+ * @param {Code} from
+ * @param {Code} to
+ * @param {Number} amount
+ * @returns {Number}
+ *
+ * Code : 화폐 코드 ex)"KRW", "USD"
+ */
+function convert(from, to, amount) {
+    if (from == to) return Promise.resolve(amount);
+    return getLatestRates({ from, to }).then((res) => {
+        return Number((amount * res.rates[to]).toFixed(2));
+    });
+}
+
+export { getCurrencyList, getLatestRates, convert };
