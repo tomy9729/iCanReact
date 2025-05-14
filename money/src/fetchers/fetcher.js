@@ -46,4 +46,18 @@ function convert(from, to, amount) {
     });
 }
 
-export { getCurrencyList, getLatestRates, convert };
+/**
+ *
+ * @param {Date} from
+ * @param {Date} to
+ * @param {Code} base
+ * @param {Code} symbols
+ * @returns
+ *
+ * Date : 날짜 문자열 ex)"2000-01-01"
+ */
+function fetchRates(from, to, base, symbols, amount) {
+    return myFetch(`${from}..${to}`, { base, symbols, amount });
+}
+
+export { getCurrencyList, getLatestRates, convert, fetchRates };

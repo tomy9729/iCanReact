@@ -14,6 +14,7 @@ function SelectMoneyBox({
         const code = e.target.value;
         const cInfo = currencyInfoList.find((c) => c.code == code);
         setSelectedCurrencyInfo(cInfo);
+        setMoney(cInfo.defaultMoney.toLocaleString());
     }
 
     function onChangedMoney(e) {
